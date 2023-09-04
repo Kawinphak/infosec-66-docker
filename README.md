@@ -6,4 +6,4 @@
 - 2.run this commit ~docker-compose up -d
 
 ## stop project
-- 1.run this commit ~docker-compose down
+- 1.run this commit ~docker-compose down-0
