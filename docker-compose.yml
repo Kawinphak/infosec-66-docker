@@ -6,8 +6,8 @@ services:
     ports:
       - 54322:5432
     environment:
-      - POSTGRES_USER=Kawinphak
-      - POSTGRES_PASSWORD=Kawinphak2003
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
     image: postgres:latest
     restart: unless-stopped
 
@@ -16,8 +16,8 @@ services:
     ports:
       - 8080:8080
     environment:
-      - PGADMIN_DEFAULT_EMAIL=kawinphak-i@rmutp.ac.th
-      - PGADMIN_DEFAULT_PASSWORD=Kawinphak2003
+      - PGADMIN_DEFAULT_EMAIL=${PG_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PG_PASS}
     image: dpage/pgadmin4:latest
 
   strapi:
@@ -25,11 +25,11 @@ services:
     ports:
       - 1337:1337
     environment:
-      - DATABASE_CLIENT=postgres
-      - DATABASE_HOST=192.168.56.1
-      - DATABASE_PORT=54322
-      - DATABASE_NAME=strapi4
-      - DATABASE_USERNAME=Kawinphak
-      - DATABASE_PASSWORD=Kawinphak2003
-      - DATABASE_SSL=false
+      - DATABASE_CLIENT=${STRAPI_CLIENT}
+      - DATABASE_HOST=${STRAPI_HOST}
+      - DATABASE_PORT=${STRAPI_PORT}
+      - DATABASE_NAME=${STRAPI_NAME}
+      - DATABASE_USERNAME=${STRAPI_USERNAME}
+      - DATABASE_PASSWORD=${STRAPI_PASSWORD}
+      - DATABASE_SSL=${STRAPI_SSL}
     image: naskio/strapi:latest
